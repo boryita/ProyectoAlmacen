@@ -1,3 +1,14 @@
+"use strict"
+/**
+ * @file Proyecto Almacen   
+ * @author Borja Fariña Gonzalez
+ * @version 1.0
+ */
+
+/**
+ * @class Almacen 
+ * @constructor Capacidad,cds,dvds 
+ */
 
 class Almacen {
     //Constructor de la clase almacén, recibe la cantidad de elementos (cds o dvds) que puede haber. 
@@ -6,6 +17,12 @@ class Almacen {
         this.cds = [];
         this.dvds = [];
     }
+     /**
+     * @function introducir recibe un objeto y lo mete el array correspondiente
+     * @param {String} objeto de tipo cd o dvd
+     * @return Devuelve 0 si no puede meterlo o objeto.unidades(las unidades que mete)
+     */
+
     //El método introducir recibe un objeto y si hay sitio, tras comprobar si es de tipo cd o dvd lo mete dentro de la colección (Array) correspondiente. Devuelve 0 si no puede meterlo o en caso contrario el número de unidades introducidas.
     introducir(objeto) {
         if (this.capacidad == 0) {
@@ -37,6 +54,13 @@ class Almacen {
             return objeto.unidades
         }
     }
+
+    /**
+     * @function buscar busca dentro del almacen si existe un cd o dvd con ese nombre
+     * @param {string} tituloautor 
+     * @return objDevuelto si lo encuentra y si no lo encuentra null
+     */
+
     //Este método recibe una cadena de texto y busca dentro del almacén si existe un cd o dvd con ese título o ese autor, si lo encuentra devulve un objeto con el título, autor, unidades y precio. Si no lo encuentra devuelve null
     buscar(tituloautor) {
         for (let obj of this.cds) {
@@ -63,6 +87,13 @@ class Almacen {
         }
         return null;
     }
+    /**
+     * @function comprar recibe una cadena con titulo y una cantidad de dinero
+     * @param {string} titulo 
+     * @param {number} dinero
+     * @return -1 si no puede comprarlo y la cantidad de dinero que le sobra 
+     */
+    
     //El método comprar, recibe una cadena de texto con un título y la cantidad de dinero. Devuelve -1 si no puede comprarlo y la cantidad de dinero que le sobra si lo puede comprar.
     
     comprar(titulo, dinero) {
